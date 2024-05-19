@@ -1,0 +1,97 @@
+
+.btn{
+    display: flex;
+    padding: 4pt;
+    stroke-width: 1pt;
+    outline: solid;
+    border-radius: 999pt;
+    width: fit-content;
+    transition-duration: 0.4s;
+    color: #222222;
+    margin: 4pt;
+    cursor: pointer;
+}
+.btn-nooutline{
+    stroke-width: 0;
+    outline: transparent;
+}
+.btn-primary{
+    outline-color: #222222;
+}
+.btn:hover,
+.btn-active{
+    outline-color: #ff6257;
+    color: #ff6257;
+}
+.btn-disabled{
+    outline-color: #d5d5d5;
+    color: #d5d5d5;
+}
+.btn-disabled:hover{
+    outline-color: #d5d5d5;
+    color: #d5d5d5 !important;
+}
+.imgbtn{
+    display: flex;
+    stroke-width: 1pt;
+    outline: solid;
+    border-radius: 999pt;
+    width: fit-content;
+    transition-duration: 0.4s;
+    color: #222222;
+    margin: 4pt;
+    cursor: pointer;
+}
+.imgbtn:hover,
+.imgbtn-active{
+    outline-color: #ff6257;
+    color: #ff6257;
+}
+.btn-pagination{
+    display: flex;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    stroke-width: 1pt;
+    border-radius: 8px;
+    outline: solid;
+    outline-color: #eeeeee;
+}
+.btn-pagination-active{
+    display: flex;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    stroke-width: 1pt;
+    border-radius: 8px;
+    outline: solid;
+    outline-color: #222222;
+}
+.chatBtn{
+    position: fixed;
+    width: 48px;
+    border-radius: 100%;
+    height: 48px;
+    background-color: #ff6257;
+    bottom: 32px;
+    right: 32px;
+    transition: 0.3s;
+}
+.chatBtn:hover{
+    background-color: lightgreen;
+    width: 52px;
+    height: 52px;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+
+
+
+
+
+
+/**/

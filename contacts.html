@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="textstyles.css">
+    <link rel="stylesheet" href="btnstyles.css">
+    <link rel="stylesheet" href="margins.css">
+    <link rel="stylesheet" href="imgsizes.css">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <title>MyPizza | Контакты</title>
+</head>
+<body>
+<header class="mb8">
+    <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></div></a>
+    <div class="fill"></div>
+    <div class="mobile">
+        <div class="h2 center menubtn mshow" onclick="OpenCloseMenu(id)" id="MenuClosed">МЕНЮ</div>
+        <div class="btn btn-nooutline h3 menu mhide"> <a href="index.html"> Меню </a></div>
+        <div class="btn btn-active btn-nooutline h3 menu mhide"> <a class="btn-active" href="contacts.html"> Контакты </a> </div>
+        <div class="btn btn-nooutline h3 menu mhide"> <a href="news.html"> Новости </a></div>
+    </div>
+<div class="fill"></div>
+    <a href="basket.html"><image class="imgbtn round mxs32" src="images/basket.png"></div></a>
+</header>
+<div class="row chatBtn center" id="chatBtn" onclick="ShowHide()">
+    <image class="imgcover mxs24" src="images/chat.png"></image> 
+</div>
+<div class="chatcont col hidden" id="chatcont">
+    <div class="chat rounded12" id="chatarea"></div>
+    <div class="row center mb8 ml12 mr12">
+        <textarea class="rounded12 inputstyle body mxs160" id="msgtext"></textarea>
+        <div class="btn btn-active" onclick="sendMsg()"><image class="imgcover mxs24" src="images/send.png"></image></div>
+    </div>
+</div>
+<div class="mt64">
+    <div class="h1 bold mt16 mb16">КОНТАКТЫ</div>
+    <div class="h2 mb16">г. Кострома ул. Клубничная, 6 <br> 46-54-21</div>
+    <div class="row center">
+        <div class="paralax  row center">
+        <image class="imgcover mxs80pr" src="images/map.svg"></image>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="row mt16">
+        <div class="col">
+            <div class="row">
+                <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></image></a>
+            </div>
+            <div class="row mobile">
+                <div class="btn">tg</div> 
+                <div class="btn">vk</div> 
+            </div>
+        </div>
+        <div class="fill"></div>
+        <div class="col">
+            <div class="h1">Меню</div>
+            <div class="h3"><a href="index.html#Pizza">Пицца</a></div>
+            <div class="h3"><a href="index.html#Rolls">Роллы</a></div>
+            <div class="h3"><a href="index.html#Wok">Вок</a></div>
+        </div>
+        <div class="fill"></div>
+        <div class="row alignflexend mobile">
+            <div class="btn">appstore</div>
+            <div class="btn">googleplay</div>
+            <div class="btn">appgallery</div>
+        </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="row mt16 mobile">
+        <div class="body-16 secondary">© ООО "Пыцца" 2022-2023. Все права защищены.</div>
+        <div class="fill"></div>
+        <div class="body-16 secondary">Политика обработки персональных данных</div>
+    </div>
+</footer>
+
+<template id="msgTempl">
+    <div class="fill row" id="msgoutercont">
+    <div class="msgcont" id="msgcont">
+    </div>
+    </div>
+</template>
+<script src="jss/bot.js"></script>
+<script src="jss/burger.js"></script>
+
+</body>
+</html>

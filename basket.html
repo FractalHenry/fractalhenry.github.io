@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="textstyles.css">
+    <link rel="stylesheet" href="btnstyles.css">
+    <link rel="stylesheet" href="margins.css">
+    <link rel="stylesheet" href="imgsizes.css">
+    <link rel="stylesheet" href="modal.css">
+<head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <title>MyPizza | Корзина</title>
+</head>
+<body>
+<header class="mb8">
+    <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></div></a>    
+    <div class="fill"></div>
+    <div class="mobile">
+        <div class="h2 center menubtn mshow" onclick="OpenCloseMenu(id)" id="MenuClosed">МЕНЮ</div>
+        <div class="btn btn-nooutline h3 menu mhide"> <a href="index.html"> Меню </a></div>
+        <div class="btn btn-nooutline h3 menu mhide"> <a href="contacts.html"> Контакты </a> </div>
+        <div class="btn btn-nooutline h3 menu mhide"> <a href="news.html"> Новости </a></div>
+    </div>
+    <div class="fill"></div>
+    <a href="basket.html"><image class="imgbtn imgbtn-active round mxs32" src="images/basket.png"></div></a>
+</header>
+
+<div class="col center hidden" id="mdlcnt"> 
+    <section class="col modal center" id="modalcontent">
+        <div class="h1" id="modalhdr">aaaa</div>
+        <div class="h2 secondary" id="modaldescr">aaaa</div>
+        <div class="btn" onclick="closeModal()">Закрыть окно</div>
+    </section>
+    <div class="overlay" id="overlay"></div>
+</div>
+
+<div class="row chatBtn center" id="chatBtn" onclick="ShowHide()">
+    <image class="imgcover mxs24" src="images/chat.png"></image> 
+</div>
+<div class="chatcont col hidden" id="chatcont">
+    <div class="chat rounded12" id="chatarea"></div>
+    <div class="row center mb8 ml12 mr12">
+        <textarea class="rounded12 inputstyle body mxs160" id="msgtext"></textarea>
+        <div class="btn btn-active" onclick="sendMsg()"><image class="imgcover mxs24" src="images/send.png"></image></div>
+    </div>
+</div>
+<div class="col mt64">
+    <div class="h1 bold">
+        КОРЗИНА
+    </div>
+    <div class="stroke mt16"></div>
+    <div id="basket">
+        <div id="basketempty" class=" mt16 row center h1 hidden">КОРЗИНА ПУСТА</div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="row mt16 mobile">
+        <div class="fill"></div>
+        <div class="btn h3"> <a href=""> Ввести прокомод </a> </div>
+        <div class="btn h3"> <a href=""> Использовать бонусы </a> </div>
+    </div>
+    
+    <div class="stroke mt16"></div>
+    <div class="mt16">
+        <div class="h1 bold">ДОСТАВКА</div>
+        <div class= "col mt16">
+            <input class="mr8 rounded12 inputstyle h2" id="addr" placeholder="Адрес" required minlength="5" onchange="checkInputs()"></input>
+            <div class="row mobile">
+                <input class="mr8 rounded12 inputstyle h2 fill" id="apartnum" placeholder="№ Квартиры" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onchange="checkInputs()"></input>
+                <input class="mr8 rounded12 inputstyle h2 fill" id="entrnum" placeholder="Подъезд" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onchange="checkInputs()"></input>
+                <input class="mr8 rounded12 inputstyle h2 fill" id="floornum" placeholder="Этаж" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onchange="checkInputs()"></input>
+            </div>
+            <div class="row mobile">
+                <input class=" mr8 rounded12 inputstyle h2 fill" id="mobnum" placeholder="Телефон" required minlength="6" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onchange="checkInputs()"></input>
+                <input class=" mr8 rounded12 inputstyle h2 fill" id="custname" placeholder="Имя" required minlength="2" onkeydown="return /[a-z]/i.test(event.key)" onchange="checkInputs()"></input>
+                <input class=" mr8 rounded12 inputstyle h2 fill" id="custemail" placeholder="Почта" onchange="checkInputs()"></input>
+            </div>
+            <input class="mr8 rounded12 inputstyle h2 fill" placeholder="Комментарий" onchange="checkInputs()"></input>
+        </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="mt16">
+    <div class="h1 bold">ОПЛАТА</div>
+    <div class="mt16 col">
+        <div class="row mobile">
+            <input class ="rounded16" checked type="radio" name="payment" id="cash" onclick="Payment(id)" ><label class ="h3" for="cash">Наличными</label></input>
+            <input class ="rounded16" type="radio" name="payment" id="card" onclick="Payment(id)"><label class ="h3" for="card">Картой при получении</label></input>
+        </div>
+        <div id="cashpayment" class="row mt16 mobile">
+            <input class="rounded12 inputstyle h3" id="changeinput" placeholder="Нужна сдача с:" minlength="3" maxlength="4" onkeypress='return clearRadio() & event.charCode >= 48 && event.charCode <= 57 '>
+            <input class ="rounded16" type="radio" name="change" id="1000r"><label class ="h3" for="1000r" onclick="clearInput()" onchange="checkInputs()">1000</label></input>
+            <input class ="rounded16" type="radio" name="change" id="2000r"><label class ="h3" for="2000r" onclick="clearInput()" onchange="checkInputs()">2000</label></input>
+            <input class ="rounded16" type="radio" name="change" id="5000r"><label class ="h3" for="5000r" onclick="clearInput()" onchange="checkInputs()">5000</label></input>
+            <input class ="rounded16" checked type="radio" name="change" id="nochange"><label class ="h3" for="nochange">Без сдачи</label></input>
+            <div class="fill"></div>
+        </div>
+        <div class="row">
+        <input class ="visible rounded16" type="radio" name="agreement" id="agreed" required onchange="checkInputs()"><label class ="h3" for="agreed" onchange="checkInputs()">Соглашаюсь на распространение указанных в заказе персональных данных третьим лицам. С условиями Публичной оферты ознакомлен.</label></input>
+        </div>
+    </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="mt16">
+        <div class="h1 bold">ИТОГО</div>
+        <div class="col">
+            <div class="row mt16">
+                <div class="h3 secondary mr8">Доставка</div> 
+                <div class="h3 hover">Бесплатно</div> 
+            </div>
+            <div class="row mt16">
+                <div class="h3 secondary mr8">Доставим к</div> 
+                <div class="h3 primary" id="delivertime">##:##</div>
+            </div>
+        </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="mt16">
+        <div class="row mt1 alignbaseline">
+            <div class="h2 secondary mr8">К оплате</div> 
+            <div class="h1 primary" id="summary" > 0 </div>
+            <div class="h1 primary" > ₽ </div>
+        </div>
+        <div class="mt16 btn btn-primary h3" onclick="showModal()" id="MakeOrder" >Оформить заказ</div>
+    </div>  
+</div>
+<footer class="mt16">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></image></a>
+            </div>
+            <div class="row mobile">
+                <a href="vk.com"><image class="imgbtn rounded16 mxs32" src="images/vklogo.png"></image></a>
+                <a href="web.telegram.com"><image class="imgbtn rounded16 mxs32" src="images/tglogo.png"></image></a>
+            </div>
+        </div>
+        <div class="fill"></div>
+        <div class="col">
+            <div class="h1">Меню</div>
+            <div class="h3"><a href="index.html#Pizza">Пицца</a></div>
+            <div class="h3"><a href="index.html#Rolls">Роллы</a></div>
+            <div class="h3"><a href="index.html#Wok">Вок</a></div>
+        </div>
+        <div class="fill"></div>
+        <div class="row alignflexend mobile">
+            <div class="btn">appstore</div>
+            <div class="btn">googleplay</div>
+            <div class="btn">appgallery</div>
+        </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="row mt16 mobile">
+        <div class="body-16 secondary">© ООО "Пыцца" 2022-2023. Все права защищены.</div>
+        <div class="fill"></div>
+        <div class="body-16 secondary">Политика обработки персональных данных</div>
+    </div>
+</footer>
+<template id="msgTempl">
+    <div class="fill row" id="msgoutercont">
+    <div class="msgcont" id="msgcont">
+    </div>
+    </div>
+</template>
+<template id="itemTeml">
+    <div class="row basketitem mt16" id="basketitem">
+        <div class="h2" id="name">Lorem, ipsum dolor.</div>
+        <div class="fill"></div>
+        <div class="row counter">
+            <image class="mxs24 ml8" src="images/left arrow.png" value="" onclick="ChangeValue(-1,id)" id="down"></image>
+            <div class="h2 ml8" id="cnt">N</div>
+            <image class="mxs24 ml8" src="images/right arrow.png" value="" onclick="ChangeValue(1,id)" id="up"></image>
+        </div>
+        <div class="row">
+        <div class="h2 ml8" id="totalprice">NNN</div>
+        <div class="h2 ml8">₽</div>
+        </div>
+        <image class="mxs24 ml8" src="images/X.png" onclick="del(id)" id="del"></image>
+    </div>
+</template>
+<script src="jss/bot.js"></script>
+<script src="jss/burger.js"></script>
+<script src="jss/info.js"></script>
+<script src="jss/basket.js"></script>
+</body>
+</html>

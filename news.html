@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="textstyles.css">
+    <link rel="stylesheet" href="btnstyles.css">
+    <link rel="stylesheet" href="margins.css">
+    <link rel="stylesheet" href="imgsizes.css">
+<head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <title>MyPizza | Новости</title>
+</head>
+<body>
+<header class="mb8">
+    <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></div></a>
+    <div class="fill"></div>
+    <div class="mobile">
+        <div class="h2 center menubtn mshow" onclick="OpenCloseMenu(id)" id="MenuClosed">МЕНЮ</div>
+    <div class="btn btn-nooutline h3 menu mhide"> <a href="index.html"> Меню </a></div>
+    <div class="btn btn-nooutline h3 menu mhide"> <a href="contacts.html"> Контакты </a> </div>
+    <div class="btn btn-active btn-nooutline h3 menu mhide"> <a class="btn-active" href="news.html"> Новости </a></div>
+    </div>
+    <div class="fill"></div>
+    <a href="basket.html"><image class="imgbtn round mxs32" src="images/basket.png"></div></a>
+</header>
+<div class="row chatBtn center" id="chatBtn" onclick="ShowHide()">
+    <image class="imgcover mxs24" src="images/chat.png"></image> 
+</div>
+<div class="chatcont col hidden" id="chatcont">
+    <div class="chat rounded12" id="chatarea"></div>
+    <div class="row center mb8 ml12 mr12">
+        <textarea class="rounded12 inputstyle body mxs160" id="msgtext"></textarea>
+        <div class="btn btn-active" onclick="sendMsg()"><image class="imgcover mxs24" src="images/send.png"></image></div>
+    </div>
+</div>
+<div class="h1 bold mt64 mb16" name="Pizza">НОВОСТИ</div>
+<div class="col mb16" id="newsblock">
+</div>
+<div class="row center">
+    <image id="leftbt" class="btn btn-nooutline mxs24 mr8" src="images/left arrow.png"onclick="updateNews(id)"></image>
+    <div class="row "id="pgbtns">
+    <div class=" btn btn-pagination-active mr8 h2" id="pg1" onclick="updateNews(id)" name="pgs">1</div>
+    </div>
+    <image id="rightbt"class="btn btn-nooutline mxs24 ml8" src="images/right arrow.png" onclick="updateNews(id)"></image>
+</div>
+<div class="fillvert"></div>
+<footer>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></image></a>
+            </div>
+            <div class="row mobile">
+                <a href="vk.com"><image class="imgbtn rounded16 mxs32" src="images/vklogo.png"></image></a>
+                <a href="web.telegram.com"><image class="imgbtn rounded16 mxs32" src="images/tglogo.png"></image></a>
+            </div>
+        </div>
+        <div class="fill"></div>
+        <div class="col">
+            <div class="h1">Меню</div>
+            <div class="h3"><a href="#Pizza">Пицца</a></div>
+            <div class="h3"><a href="#Rolls">Роллы</a></div>
+            <div class="h3"><a href="#Wok">Вок</a></div>
+        </div>
+        <div class="fill"></div>
+        <div class="row alignflexend mobile">
+            <div class="btn fill">appstore</div>
+            <div class="btn">googleplay</div>
+            <div class="btn">appgallery</div>
+        </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="row mt16 mobile">
+        <div class="body-16 secondary">© ООО "Пыцца" 2022-2023. Все права защищены.</div>
+        <div class="fill"></div>
+        <div class="body-16 secondary">Политика обработки персональных данных</div>
+    </div>
+</footer>
+<template id="newsTempl">
+    <div class="row mb16" id="newscont" name="newscont">
+        <image class="mxs160 mns160 mr16 mhide" src="images/fillerimg.jpeg" id="newsimg"></image>
+        <div class="col">
+            <div class="h1 mb16" id="newshdr"></div>
+            <div class="h3 mb16 secondary" id="newsdescr"></div>
+            <div class="h3"><a href="article.html" id="articleOpenBtn" onclick="SaveArticle(this)">Узнать больше</a></div>
+        </div>
+        <div class="fill"></div>
+        <div class="h3 secondary" id="newsdate"></div>
+    </div>
+</template>
+<template id="newsBtn">
+    <div class=" btn btn-pagination mr8 h2" id="pg" onclick="updateNews(id)" name="pgs">N</div>
+</template>
+
+<template id="msgTempl">
+    <div class="fill row" id="msgoutercont">
+    <div class="msgcont" id="msgcont">
+    </div>
+    </div>
+</template>
+<script src="jss/bot.js"></script>
+<script src="jss/info.js"></script>
+<script src="jss/news.js"></script>
+<script src="jss/burger.js"></script>
+</body>
+</html>

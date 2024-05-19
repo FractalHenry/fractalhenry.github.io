@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="textstyles.css">
+    <link rel="stylesheet" href="btnstyles.css">
+    <link rel="stylesheet" href="margins.css">
+    <link rel="stylesheet" href="imgsizes.css">
+    <link rel="stylesheet" href="cardsstyle.css">
+    <link rel="stylesheet" href="modal.css">
+<head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <title> MyPizza | Меню </title>
+</head>
+<body>
+<header class="mb8">
+    <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></div></a>    
+    <div class="fill"></div>
+    <div class="mobile">
+        <div class="h2 center menubtn mshow" onclick="OpenCloseMenu(id)" id="MenuClosed">МЕНЮ</div>
+        <div class="btn btn-active btn-nooutline h3 menu mhide" tag="menu"> <a class="btn-active" href="index.html"> Меню </a></div>
+        <div class="btn btn-nooutline h3 menu mhide" tag="menu"> <a href="contacts.html"> Контакты </a> </div>
+        <div class="btn btn-nooutline h3 menu mhide" tag="menu"> <a href="news.html"> Новости </a></div>
+    </div>
+    <div class="fill"></div>
+    <a href="basket.html"><image class="imgbtn round mxs32" src="images/basket.png"></div></a>
+</header>
+<div class="row chatBtn center" id="chatBtn" onclick="ShowHide()">
+    <image class="imgcover mxs24" src="images/chat.png"></image> 
+</div>
+<div class="chatcont col hidden" id="chatcont">
+    <div class="chat rounded12" id="chatarea"></div>
+    <div class="row center mb8 ml12 mr12">
+        <textarea class="rounded12 inputstyle body mxs160" id="msgtext"></textarea>
+        <div class="btn btn-active" onclick="sendMsg()"><image class="imgcover mxs24" src="images/send.png"></image></div>
+    </div>
+</div>
+<div class="row center mt64">
+    <div class="carouselcont mhide">
+        <div class="h2 btn btn-nooutline bold center" id="left-arrow">&lt;</div>
+        <img class="carousel imgcover" id="carousel"></img>
+        <div class="h2 btn btn-nooutline bold center" id="right-arrow">&gt;</div>
+    </div>
+</div>  
+<div class="category">
+    <div class="h1 bold mt16 mb16">ПИЦЦА</div>
+    <div class="cards" id="Pizza">
+    </div>
+</div>
+<div class="category">
+    <div class="category-header">
+    <div class="h1 bold mt16 mb16">РОЛЛЫ</div>
+    <div class="mobile-icon">
+        <image src="images/mobilerolls.jpg"></image>
+    </div>
+    </div>
+    <div class="cards" id ="Rolls">
+        
+    </div>
+</div>
+<div class="category" >
+    <div class="h1 bold mt16 mb16">ВОК</div>
+    <div class="cards" id ="Wok">
+        
+    </div>
+    
+<div class="category" >
+    <div class="h1 bold mt16 mb16">ВОК</div>
+    <div class="cards" id ="Tea">
+        
+    </div>
+</div>
+<footer>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <a href="index.html"><image class="imgbtn round mxs32" src="images/favicon.png"></image></a>
+            </div>
+            <div class="row mobile">
+                <a href="vk.com"><image class="imgbtn rounded16 mxs32" src="images/vklogo.png"></image></a>
+                <a href="web.telegram.com"><image class="imgbtn rounded16 mxs32" src="images/tglogo.png"></image></a>
+            </div>
+        </div>
+        <div class="fill"></div>
+        <div class="col">
+            <div class="h1">Меню</div>
+            <div class="h3"><a href="#Pizza">Пицца</a></div>
+            <div class="h3"><a href="#Rolls">Роллы</a></div>
+            <div class="h3"><a href="#Wok">Вок</a></div>
+        </div>
+        <div class="fill"></div>
+        <div class="row alignflexend mobile">
+            <div class="btn fill">appstore</div>
+            <div class="btn">googleplay</div>
+            <div class="btn">appgallery</div>
+        </div>
+    </div>
+    <div class="stroke mt16"></div>
+    <div class="row mt16 mobile">
+        <div class="body-16 secondary">© ООО "Пыцца" 2022-2023. Все права защищены.</div>
+        <div class="fill"></div>
+        <div class="body-16 secondary">Политика обработки персональных данных</div>
+    </div>
+</footer>
+
+
+<div class="col center hidden" id="mdlcnt"> 
+    <section class="row modal mobile" id="modalcontent">
+        <image class="mxs160" id="modalimg" src="images/fillerimg.jpeg"></image>
+        <div class="col">
+            <div class="h1" id="modalhdr">aaaa</div>
+            <div class="h2 secondary" id="modaldescr">aaaa</div>
+            <div class="row">
+                <div class="h1 mr8">Цена:</div>
+                <div class="h1" id="modalprice">sss</div>
+                <div class="h1">₽</div>
+            </div>
+            <div class="row alignbaseline">   
+                <div class="h2 btn btn-nooutline bold" onclick="ChangeValue(-1)" id="mdlleftbtn">&lt;</div>
+                <div class="h2 " id="counter">n</div>
+                <div class="h2 btn btn-nooutline  bold" onclick="ChangeValue(1)" id="mdlrightbtn">&gt;</div>
+                <div class="h2 mr8">К оплате:</div>
+                <div class="h2" id="modaltotal"> nnn</div>
+                <div class="h2">₽</div>
+            </div>
+            <div class="btn h2" id="basketadd" onclick="toBasket()">Добавить в корзину</div>
+        </div>
+    </section>
+    <div class="overlay" id="overlay"></div>
+</div>
+<template id="cardtempl">
+    <div class="card">
+        <image class="card-image" id="crdimg" src=""></image>
+        <div>
+            <div class="h3" id="crdhdr"></div>
+            <div class="secondary wrapping" id="crddescr"></div>
+        </div>
+        <div class="btn btn-primary mt16"><a id="crdbtn">Выбрать</a></div>
+</template>
+
+<template id="msgTempl">
+    <div class="fill row" id="msgoutercont">
+    <div class="msgcont" id="msgcont">
+    </div>
+    </div>
+</template>
+<script src="jss/info.js"></script>
+<script type="text/javascript" src="jss/products.js"></script>
+<script src="jss/burger.js"></script>
+<script src="jss/carousel.js"></script>
+<script src="jss/bot.js"></script>
+</body>
+</html>
